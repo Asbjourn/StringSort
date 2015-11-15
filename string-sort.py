@@ -115,7 +115,13 @@ def main(argv):
     O(n * m)
     During the recreation step, each of the k elements for each character in each words is visited,
     O(k * n * m)
-    Presumably n * m >> k and is the determining factor, yielding O(n * m) 
+    Presumably n * m >> k and is the determining factor, yielding O(n * m)
+
+    Depending on my time, I may remove the automatic creation of the instantiation of the k length arrays
+    The idea was that by doing so, one would not have to worry about the insertion process when updating a trie,
+    as the location would be known in O(1) (rather than O(log(k))).  The increased space seemed a fair tradeoff.
+    However, it increases the number of charactes visited during the traversal process as they are all checked
+    to see if they exist, and depending on the number of characters present it may not be worth. 
     """
     print("Sorting: {0}, {1}".format(["acb", "dad", "abc", "bca", "bca"], "abcd"))
     print("{0}\n".format(sort_strings(["acb", "dad", "abc", "bca", "bca"], "abcd")))
